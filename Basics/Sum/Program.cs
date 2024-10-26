@@ -4,29 +4,29 @@
     {
         static void Main()
         {
-            float firstNumber = 0;
-            float secondNumber = 0;
+            int countNumbers = 0;
+            float sum = default;
 
             Console.WriteLine("Welcome to Sum console application!");
-            Console.WriteLine("Enter a number from keyboard: ");
+            Console.WriteLine("Enter a count of numbers to sum: ");
 
-            string firstInput = Console.ReadLine();
-            firstNumber = ParseNumber(firstInput);
-            
+            countNumbers = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter a number from keyboard: ");
+            for (int i = 1; i <= countNumbers; i++)
+            {
+                Console.WriteLine("Enter a number from keyboard: ");
 
-            string secondInput = Console.ReadLine();
-            secondNumber = ParseNumber(secondInput);
+                string input = Console.ReadLine();
+                sum += ParseFloatNumber(input);
+            }
 
-            var sum = firstNumber + secondNumber;
             Console.WriteLine($"The resulting sum is: {sum}");
         }
 
-        static float ParseNumber(string input)
+        static float ParseFloatNumber(string input)
         {
-            float number = 0;
-            
+            float number = default;
+
             try
             {
                 number = float.Parse(input);
