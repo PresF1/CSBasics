@@ -2,15 +2,19 @@
 {
     class Program
     {
+        static int countNumbers = 0;
+
         static void Main()
         {
-            int countNumbers = 0;
             float sum = default;
 
             Console.WriteLine("Welcome to Sum console application!");
-            Console.WriteLine("Enter a count of numbers to sum: ");
+            Console.WriteLine("Enter a count of numbers to sum:");
 
-            countNumbers = int.Parse(Console.ReadLine());
+            while (!TryParseCountNumbers(Console.ReadLine()))
+            {
+                Console.WriteLine("Enter a count of numbers to sum:");
+            }
 
             for (int i = 1; i <= countNumbers; i++)
             {
@@ -23,6 +27,18 @@
             Console.WriteLine($"The resulting sum is: {sum}");
         }
 
+        static bool TryParseCountNumbers(string input)
+        {
+            if (input == null)
+                return false;
+
+            if (!int.TryParse(input, out int result))
+                return false;
+
+            countNumbers = result;
+            return true;
+        }
+        
         static float ParseFloatNumber(string input)
         {
             float number = default;
