@@ -24,7 +24,7 @@
                 sum += ParseFloatNumber(input);
             }
 
-            Console.WriteLine($"The resulting sum is: {sum}");
+            Console.WriteLine($"The resulting sum is: {sum} and the arithmetic mean is: {Math.Round(sum / countNumbers)}");
         }
 
         static bool TryParseCountNumbers(string input)
